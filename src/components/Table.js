@@ -1,4 +1,5 @@
 import React from 'react'
+import './Table.module.css';
 
 function TableHeader() {
     return (
@@ -6,6 +7,7 @@ function TableHeader() {
             <tr>
                 <th>Name</th>
                 <th>Job</th>
+                <th>Remove</th>
             </tr>
         </thead>
     );

@@ -1,7 +1,15 @@
+import { makeStyles } from '@material-ui/core';
 import React, { useState } from 'react'
 import Table from './Table';
 
+const useStyles = makeStyles({
+    "root": {
+        padding: "1em"
+    }
+});
+
 function MyApp() {
+    const classes = useStyles();
     const [characters, setCharacters] = useState([
         {
           name: 'Charlie',
@@ -29,7 +37,7 @@ function MyApp() {
     }
 
     return (
-        <div className="container">
+        <div className={classes.root}>
             <Table charData={characters} remove={removeOneCharacter}/>
         </div>
     );

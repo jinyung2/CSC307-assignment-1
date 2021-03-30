@@ -1,0 +1,38 @@
+table {
+    width: 80%;
+    border: 1px solid black;
+    padding: 0.25rem;
+    background: lightcyan;
+}
+
+th {
+    text-align: left;
+    padding: 0.5rem;
+    background-color: lightblue;
+}
+
+td {
+    padding: 0 0.5rem;
+}
+
+td:last-child {
+    width: 100px;
+    text-align: center;
+}
+
+tr {
+    height: 30px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(180, 223, 213, 1.0);
+}
+
+button {
+    border: none;
+    width: auto;
+    border-radius: 5px;
+    color: rgba();
+    font-weight: 900;
+    background-color: white;
+}
