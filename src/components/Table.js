@@ -17,6 +17,9 @@ function TableBody(props) {
             <tr key={index}>
                 <td>{row.name}</td>
                 <td>{row.job}</td>
+                <td>
+                    <button onClick={() => props.remove(index)}>Delete</button>
+                </td>
             </tr>
         );
     }
@@ -33,7 +36,7 @@ function Table(props) {
     return (
         <table>
             <TableHeader />
-            <TableBody charData={props.charData} />
+            <TableBody charData={props.charData} remove={props.remove}/>
         </table>
     );
 }

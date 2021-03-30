@@ -1,30 +1,36 @@
-import React, { Component } from 'react'
-import { Typography } from '@material-ui/core';
+import React, { useState } from 'react'
 import Table from './Table';
 
-const characters = [
-    {
-      name: 'Charlie',
-      job: 'Janitor',
-    },
-    {
-      name: 'Mac',
-      job: 'Bouncer',
-    },
-    {
-      name: 'Dee',
-      job: 'Aspring actress',
-    },
-    {
-      name: 'Dennis',
-      job: 'Bartender',
-    },
-];
-
 function MyApp() {
+    const [characters, setCharacters] = useState([
+        {
+          name: 'Charlie',
+          job: 'Janitor',
+        },
+        {
+          name: 'Mac',
+          job: 'Bouncer',
+        },
+        {
+          name: 'Dee',
+          job: 'Aspring actress',
+        },
+        {
+          name: 'Dennis',
+          job: 'Bartender',
+        },
+    ])
+
+    const removeOneCharacter = (index) => {
+        const updated = characters.filter((char, i) => {
+            return i !== index;
+        });
+        setCharacters(updated);
+    }
+
     return (
         <div className="container">
-            <Table charData={characters} />
+            <Table charData={characters} remove={removeOneCharacter}/>
         </div>
     );
 }
