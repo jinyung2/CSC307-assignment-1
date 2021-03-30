@@ -9,6 +9,7 @@ th {
     text-align: left;
     padding: 0.5rem;
     background-color: lightblue;
+    color: rgba(0,0,0, 0.7)
 }
 
 td {
@@ -25,14 +26,15 @@ tr {
 }
 
 tr:nth-child(even) {
-    background-color: rgba(180, 223, 213, 1.0);
+    background-color: rgba(176, 213, 230, 0.5);
 }
 
 button {
     border: none;
     width: auto;
     border-radius: 5px;
-    color: rgba();
-    font-weight: 900;
-    background-color: white;
+    padding: 0.25rem 0.75git rem;
+    font-size: 1.0rem;
+    color: white;
+    background-color: rgba(255,0,0, 0.5);
 }
