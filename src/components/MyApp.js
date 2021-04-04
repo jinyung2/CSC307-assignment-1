@@ -1,35 +1,23 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import React, { useState } from 'react'
 import Table from './Table';
+import Form from './Form';
 
 const useStyles = makeStyles({
-    "root": {
-        padding: "1em"
+    root: {
+        padding: "1em",
     }
 });
 
 function MyApp() {
     const classes = useStyles();
-    const [characters, setCharacters] = useState([
-        {
-          name: 'Charlie',
-          job: 'Janitor',
-        },
-        {
-          name: 'Mac',
-          job: 'Bouncer',
-        },
-        {
-          name: 'Dee',
-          job: 'Aspring actress',
-        },
-        {
-          name: 'Dennis',
-          job: 'Bartender',
-        },
-    ])
+    const [characters, setCharacters] = useState([]);
 
-    const removeOneCharacter = (index) => {
+    function updateList(person) {
+        setCharacters([...characters, person]);
+      }
+
+    function removeOneCharacter(index) {
         const updated = characters.filter((char, i) => {
             return i !== index;
         });
@@ -39,6 +27,7 @@ function MyApp() {
     return (
         <div className={classes.root}>
             <Table charData={characters} remove={removeOneCharacter}/>
+            <Form handleSubmit={updateList}></Form>
         </div>
     );
 }
