@@ -18,7 +18,6 @@ function MyApp() {
         axios.get('http://localhost:5000/users')
             .then(res => {
                 const characters = res.data.users_list;
-                console.log(characters);
                 setCharacters(characters);
             })
             .catch((err) => {
@@ -29,9 +28,11 @@ function MyApp() {
 
     function updateList(person) {
         makePostCall(person).then(callResult => {
-            if (callResult === true) {
+            if (callResult) {
                 setCharacters([...characters, person]);
             }
+        }).then(() => {
+            console.log(characters);
         });
     }
 
@@ -39,7 +40,7 @@ function MyApp() {
         return axios.post('http://localhost:5000/users', person)
             .then(function (response) {
                 console.log(response);
-                return (response.status === 200);
+                return response.data;
             })
             .catch(function (error) {
                 console.log(error);
@@ -48,10 +49,17 @@ function MyApp() {
     }
 
     function removeOneCharacter(index) {
-        const updated = characters.filter((char, i) => {
-            return i !== index;
-        });
-        setCharacters(updated);
+        const id = characters[index].id;
+        axios.delete(`http://localhost:5000/users/${id}`).then(res => {
+            if (res.status === 204) {
+                const updated = characters.filter((char, i) => {
+                    return i !== index;
+                });
+                setCharacters(updated);
+            }
+        }).catch(err => {
+            console.log(err);
+        })
     }
 
     return (

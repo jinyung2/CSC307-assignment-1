@@ -16,6 +16,10 @@ td {
     padding: 0 0.5rem;
 }
 
+td:first-child {
+    width: 100px;
+}
+
 td:last-child {
     width: 100px;
     text-align: center;
