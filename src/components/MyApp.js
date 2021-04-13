@@ -29,12 +29,13 @@ function MyApp() {
     function updateList(person) {
         makePostCall(person).then(callResult => {
             if (callResult) {
-                setCharacters([...characters, person]);
+                setCharacters([...characters, callResult]);
             }
         }).then(() => {
             console.log(characters);
         });
     }
+
 
     function makePostCall(person) {
         return axios.post('http://localhost:5000/users', person)
